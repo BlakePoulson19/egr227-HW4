@@ -93,10 +93,12 @@ public class LetterInventory {
     // inventories with large character counts.
     public LetterInventory add (LetterInventory other) {
         LetterInventory sum = new LetterInventory("");
+        int sumSize = 0;
         for (int i = 0; i < defaultSize; i++) {
             sum.counts[i] = this.counts[i] + other.counts[i];
+            sumSize = sumSize + sum.counts[i];
         }
-        sum.size = this.size + other.size;
+        sum.size = sumSize;
         return sum;
     }
 
