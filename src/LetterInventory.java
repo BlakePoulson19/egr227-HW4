@@ -106,13 +106,15 @@ public class LetterInventory {
     // resulting count would be negative, your method should return null.
     public LetterInventory subtract (LetterInventory other) {
         LetterInventory difference = new LetterInventory("");
+        int differenceSize = 0;
         for (int i = 0; i < defaultSize; i++) {
             difference.counts[i] = this.counts[i] - other.counts[i];
+            differenceSize = differenceSize + difference.counts[i];
             if (difference.counts[i] <= -1 ) {
                 return null;
             }
         }
-        difference.size = this.size - other.size;
+        difference.size = differenceSize;
         return difference;
     }
 
